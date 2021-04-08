@@ -8,4 +8,4 @@
        name: httpd
        state: latest
 
-EXECUTE THIS PLAYBOOK BY: #ansible-playbook filename.yaml -i inventoryfile
+EXECUTE THIS PLAYBOOK AS: #ansible-playbook filename.yaml -i inventoryfile
