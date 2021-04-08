@@ -1,0 +1,9 @@
+---
+ - hosts: inventory file
+   become: yes
+   become_method: sudo
+   tasks:
+   - name: uninstalling apache
+     yum:
+     name: httpd
+     state: absent
