@@ -1,0 +1,9 @@
+---
+ - hosts: inventory file
+   become: yes
+   become method: sudo
+   tasks
+   - name: installing apache
+     yum:
+       name: httpd
+       state: latest
