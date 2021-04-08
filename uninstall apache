@@ -7,3 +7,5 @@
      yum:
      name: httpd
      state: absent
+
+EXECUTE THIS PLAYBOOK BY: #ansible-playbook filename.yaml -i inventoryfile
