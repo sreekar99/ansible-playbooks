@@ -13,12 +13,6 @@
                lv: db00
                size: 2G
 
-        - name: db01 lvm creation
-          lvol:
-               vg: dbvg
-               lv: db01
-               size: 2G
-
         - name: create file system for db00
           filesystem:
                 fstype: ext4
