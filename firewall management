@@ -1,0 +1,35 @@
+---
+ - hosts: 
+   become: yes
+   tasks:
+   - name: Managing firewalld
+     rhel_firewalld_zone_source:
+   - zone: internal
+     state: enabled
+     source:
+       - "192.168.22.64/26"
+       - "192.168.23.64/26"
+
+    rhel_firewalld_custom_service:
+    - name: zabbix-agent
+      zone: public
+      state: enabled
+      port_protocol:
+      # - 10050/tcp
+        - 3333/tcp
+    - name: openvpn
+      zone: public
+      state: enabled
+    - name: app123-public
+      zone: public
+      state: enabled
+      description: app123 firewall rules for public zone
+      port_protocol:
+        - 5000/tcp
+    - name: app123-internal
+      zone: internal
+      state: enabled
+      description: app123 firewall rules for internal zone
+      port_protocol:
+        - 8080/tcp
+        - 9000/tcp
