@@ -1,0 +1,9 @@
+---
+ - hosts:
+   become: yes
+   - name: Create a logical volume of 512m with disks /dev/sdb and /dev/sdc
+     community.general.lvol:
+     vg: firefly
+     lv: test
+     size: 512
+     pvs: /dev/sdb,/dev/sdc
