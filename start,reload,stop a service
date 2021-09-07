@@ -2,8 +2,8 @@
  - hosts: inventory file
    become: yes
    become_method: sudo
-   - tasks
-     name: start ntpd service, if not running
+   tasks
+   - name: start ntpd service, if not running
      service:
      name: ntpd
      state: started, reloaded, stopped
