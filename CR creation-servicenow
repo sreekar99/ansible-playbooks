@@ -1,0 +1,54 @@
+- name: Create change request
+  servicenow.itsm.change_request:
+    instance:
+      host: https://instance_id.service-now.com
+      username: user
+      password: pass
+
+    type: standard
+    state: new
+    requested_by: some.user
+    short_description: Install new Cisco
+    description: Please install new Cat. 6500 in Data center 01
+    attachments:
+      - path: path/to/attachment.txt
+    priority: moderate
+    risk: low
+    impact: low
+
+    other:
+      expected_start: 2021-02-12
+
+- name: Change state of the change request
+  servicenow.itsm.change_request:
+    instance:
+      host: https://instance_id.service-now.com
+      username: user
+      password: pass
+
+    state: assess
+    assignment_group: some.group
+    number: CHG0000001
+
+- name: Close change_request
+  servicenow.itsm.change_request:
+    instance:
+      host: https://instance_id.service-now.com
+      username: user
+      password: pass
+
+    state: closed
+    close_code: "successful"
+    close_notes: "Closed"
+    assignment_group: some.group
+    number: CHG0000001
+
+- name: Delete change_request
+  servicenow.itsm.change_request:
+    instance:
+      host: https://instance_id.service-now.com
+      username: user
+      password: pass
+
+    state: absent
+    number: CHG0000001
